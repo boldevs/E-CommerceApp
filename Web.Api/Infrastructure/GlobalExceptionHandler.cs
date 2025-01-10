@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Api.Infrastructure
 {
-    public sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
+    internal sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
     : IExceptionHandler
     {
         public async ValueTask<bool> TryHandleAsync(
-        HttpContext httpContext,
-        Exception exception,
-        CancellationToken cancellationToken)
+            HttpContext httpContext,
+            Exception exception,
+            CancellationToken cancellationToken)
         {
             logger.LogError(exception, "Unhandled exception occurred");
 
